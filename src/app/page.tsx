@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { TeachersMarquee } from "@/components/teachers-marquee";
 import { SmartStudySection } from "@/components/smart-study-section";
-import { MethodologySection } from "@/components/methodology-section";
+import { TeachersImageBanner } from "@/components/teachers-image-banner";
 import { WhyStartSection } from "@/components/why-start-section";
 import { CoursesSection } from "@/components/courses-section";
 import { SubjectsAndCtaSection } from "@/components/subjects-cta-section";
@@ -17,8 +17,8 @@ export default function Home() {
       <Hero />
       {/* Teachers Marquee Section */}
       <TeachersMarquee />
-      {/* Methodology & Teachers Feature Section */}
-      <MethodologySection />
+      {/* Teachers Image Banner */}
+      <TeachersImageBanner />
       {/* Smart Study 3-Card Methodology Section */}
       <SmartStudySection />
       {/* Latest Workshops & Reviews Section */}

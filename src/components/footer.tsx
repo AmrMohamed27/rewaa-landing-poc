@@ -124,7 +124,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#2659aa] text-white pt-16 sm:pt-20 pb-10 overflow-hidden">
+    <footer className="relative bg-[#2659aa] text-white pt-10 sm:pt-14 pb-8 overflow-hidden">
       {/* Background Decorative Mesh & Ambient Lighting */}
       <div
         className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent"
@@ -141,49 +141,49 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 pb-8 sm:pb-10 border-b border-white/15">
           {/* Column 1: Brand & Bio (Span 4 cols on large screens) */}
-          <div className="lg:col-span-4 flex flex-col space-y-6">
+          <div className="lg:col-span-4 flex flex-col space-y-4">
             {/* Logo & Platform Name */}
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-11 h-11 shrink-0 bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20 shadow-inner flex items-center justify-center">
+            <div className="flex items-center gap-3">
+              <div className="relative w-9 h-9 shrink-0 bg-white/10 backdrop-blur-md rounded-lg p-1.5 border border-white/20 shadow-inner flex items-center justify-center">
                 <Image
                   src="/images/rewaa_logo_white.svg"
                   alt="شعار منصة رِواء"
-                  width={36}
-                  height={36}
+                  width={30}
+                  height={30}
                   className="w-full h-auto object-contain"
                 />
               </div>
               <div>
-                <span className="text-2xl font-bold tracking-tight text-white flex items-center gap-1.5 font-heading">
+                <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5 font-heading">
                   منصة رِواء
-                  <span className="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
                 </span>
-                <span className="text-xs text-white/70 block font-medium">
+                <span className="text-[11px] text-white/70 block font-medium">
                   بيتك التعليمي للتفوق في بنها ومصر
                 </span>
               </div>
             </div>
 
             {/* Slogan Banner */}
-            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-xs text-xs font-semibold text-secondary">
-              <Sparkles className="w-3.5 h-3.5 text-secondary animate-spin-slow" />
+            <div className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-xs text-[11px] font-semibold text-secondary">
+              <Sparkles className="w-3 h-3 text-secondary animate-spin-slow" />
               <span>أنت مش لوحدك، إحنا جنبك</span>
             </div>
 
             {/* Paragraph Bio */}
-            <p className="text-sm leading-relaxed text-white/80 font-normal">
+            <p className="text-xs sm:text-sm leading-relaxed text-white/80 font-normal">
               منصة رواء التعليمية تساعدك على الاستعداد للامتحانات مع نخبة من أكفأ
               المدرسين في بنها عبر ورش مكثفة وشروحات ومراجعات مركزة.
             </p>
 
             {/* Social Links */}
             <div>
-              <p className="text-xs font-semibold text-white/70 mb-3">
+              <p className="text-[11px] font-semibold text-white/70 mb-2">
                 تابعنا وتواصل معنا:
               </p>
-              <div className="flex items-center gap-2.5 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -192,10 +192,10 @@ export function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm ${social.color}`}
+                      className={`w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white transition-all duration-200 hover:scale-105 active:scale-95 shadow-xs ${social.color}`}
                       aria-label={`حساب منصة رواء على ${social.name}`}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-3.5 h-3.5" />
                     </a>
                   );
                 })}
@@ -204,21 +204,21 @@ export function Footer() {
           </div>
 
           {/* Column 2: العلوم الأساسية (Span 3 cols) */}
-          <div className="lg:col-span-3 flex flex-col space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 pb-2 border-b border-white/10">
-              <span className="w-2 h-2 rounded-full bg-secondary inline-block" />
+          <div className="lg:col-span-3 flex flex-col space-y-3">
+            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 pb-1.5 border-b border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block" />
               العلوم الأساسية
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5">
               {scienceSubjects.map((sub, idx) => (
                 <li key={idx}>
                   <a
                     href={sub.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors duration-150"
+                    className="group inline-flex items-center gap-1.5 text-xs sm:text-sm text-white/80 hover:text-white transition-colors duration-150"
                   >
-                    <ArrowUpLeft className="w-3.5 h-3.5 text-white/40 group-hover:text-secondary group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150" />
+                    <ArrowUpLeft className="w-3 h-3 text-white/40 group-hover:text-secondary group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150" />
                     <span className="group-hover:underline underline-offset-4">
                       {sub.name}
                     </span>
@@ -229,21 +229,21 @@ export function Footer() {
           </div>
 
           {/* Column 3: اللغات والعلوم الأدبية (Span 2 cols) */}
-          <div className="lg:col-span-2 flex flex-col space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 pb-2 border-b border-white/10">
-              <span className="w-2 h-2 rounded-full bg-secondary inline-block" />
+          <div className="lg:col-span-2 flex flex-col space-y-3">
+            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 pb-1.5 border-b border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block" />
               اللغات والعلوم الأدبية
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5">
               {literarySubjects.map((sub, idx) => (
                 <li key={idx}>
                   <a
                     href={sub.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors duration-150"
+                    className="group inline-flex items-center gap-1.5 text-xs sm:text-sm text-white/80 hover:text-white transition-colors duration-150"
                   >
-                    <ArrowUpLeft className="w-3.5 h-3.5 text-white/40 group-hover:text-secondary group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150" />
+                    <ArrowUpLeft className="w-3 h-3 text-white/40 group-hover:text-secondary group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150" />
                     <span className="group-hover:underline underline-offset-4">
                       {sub.name}
                     </span>
@@ -254,27 +254,27 @@ export function Footer() {
           </div>
 
           {/* Column 4: الدعم والمساعدة (Span 3 cols) */}
-          <div className="lg:col-span-3 flex flex-col space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 pb-2 border-b border-white/10">
-              <span className="w-2 h-2 rounded-full bg-secondary inline-block" />
+          <div className="lg:col-span-3 flex flex-col space-y-3">
+            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 pb-1.5 border-b border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block" />
               الدعم والمساعدة
             </h3>
-            <div className="space-y-3.5">
+            <div className="space-y-2.5">
               {/* Phone Entry */}
               <a
                 href="tel:01000000000"
-                className="group flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-150"
+                className="group flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-150"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-secondary group-hover:scale-105 transition-transform duration-150">
-                  <Phone className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-md bg-white/10 flex items-center justify-center shrink-0 text-secondary group-hover:scale-105 transition-transform duration-150">
+                  <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-xs text-white/60 block font-medium">
+                  <span className="text-[10px] text-white/60 block font-medium">
                     خدمة الطلاب والدعم
                   </span>
                   <span
                     dir="ltr"
-                    className="text-sm font-bold text-white tracking-wide block group-hover:text-secondary transition-colors"
+                    className="text-xs sm:text-sm font-bold text-white tracking-wide block group-hover:text-secondary transition-colors"
                   >
                     +20 10 0000 0000
                   </span>
@@ -282,16 +282,16 @@ export function Footer() {
               </a>
 
               {/* Working Hours Entry */}
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-secondary">
-                  <Clock className="w-4 h-4" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10">
+                <div className="w-7 h-7 rounded-md bg-white/10 flex items-center justify-center shrink-0 text-secondary">
+                  <Clock className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-xs text-white/60 block font-medium">
+                  <span className="text-[10px] text-white/60 block font-medium">
                     ساعات العمل الرسمية
                   </span>
-                  <p className="text-xs font-semibold text-white/90 mt-0.5 leading-snug">
-                    متاح يومياً من 9 صباحاً حتى 11 مساءً
+                  <p className="text-[11px] font-semibold text-white/90 leading-snug">
+                    متاح يومياً من 9 ص حتى 11 م
                   </p>
                 </div>
               </div>
@@ -299,16 +299,16 @@ export function Footer() {
               {/* Email Entry */}
               <a
                 href="mailto:support@rewaaedu.com"
-                className="group flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-150"
+                className="group flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-150"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-secondary group-hover:scale-105 transition-transform duration-150">
-                  <Mail className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-md bg-white/10 flex items-center justify-center shrink-0 text-secondary group-hover:scale-105 transition-transform duration-150">
+                  <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 truncate">
-                  <span className="text-xs text-white/60 block font-medium">
+                  <span className="text-[10px] text-white/60 block font-medium">
                     البريد الإلكتروني
                   </span>
-                  <span className="text-xs font-bold text-white block truncate group-hover:text-secondary transition-colors">
+                  <span className="text-[11px] font-bold text-white block truncate group-hover:text-secondary transition-colors">
                     support@rewaaedu.com
                   </span>
                 </div>
@@ -318,7 +318,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar: Rights on Right (in RTL), Links on Left */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/70">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-white/70">
           {/* Rights Notice */}
           <div className="text-center md:text-right">
             <p className="leading-relaxed">
@@ -328,28 +328,28 @@ export function Footer() {
           </div>
 
           {/* Legal / Secondary Navigation */}
-          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center md:justify-start">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center md:justify-start">
             <Link
               href="/privacy-policy"
-              className="inline-flex items-center gap-1.5 text-white/75 hover:text-white transition-colors duration-150 underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-1 text-white/75 hover:text-white transition-colors duration-150 underline-offset-4 hover:underline"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-secondary/80" />
+              <ShieldCheck className="w-3 h-3 text-secondary/80" />
               <span>سياسة الخصوصية</span>
             </Link>
             <span className="text-white/20 hidden sm:inline">•</span>
             <Link
               href="/terms"
-              className="inline-flex items-center gap-1.5 text-white/75 hover:text-white transition-colors duration-150 underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-1 text-white/75 hover:text-white transition-colors duration-150 underline-offset-4 hover:underline"
             >
-              <FileText className="w-3.5 h-3.5 text-secondary/80" />
+              <FileText className="w-3 h-3 text-secondary/80" />
               <span>الشروط والأحكام</span>
             </Link>
             <span className="text-white/20 hidden sm:inline">•</span>
             <Link
               href="/faq"
-              className="inline-flex items-center gap-1.5 text-white/75 hover:text-white transition-colors duration-150 underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-1 text-white/75 hover:text-white transition-colors duration-150 underline-offset-4 hover:underline"
             >
-              <HelpCircle className="w-3.5 h-3.5 text-secondary/80" />
+              <HelpCircle className="w-3 h-3 text-secondary/80" />
               <span>الأسئلة الشائعة</span>
             </Link>
           </div>

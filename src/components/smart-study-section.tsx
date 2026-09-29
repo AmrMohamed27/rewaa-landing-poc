@@ -62,77 +62,72 @@ export function SmartStudySection() {
   return (
     <section
       id="smart-study"
-      className="relative pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+      className="relative pb-10 sm:pb-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
       aria-labelledby="smart-study-heading"
     >
       {/* Background subtle radial ambient glows */}
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-primary/5 via-secondary/5 to-emerald-500/5 blur-3xl -z-10 rounded-full"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-tr from-primary/5 via-secondary/5 to-emerald-500/5 blur-3xl -z-10 rounded-full"
         aria-hidden="true"
       />
 
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-4 shadow-xs">
-          <Sparkles className="size-3.5 text-primary" />
-          <span>أسلوب تعليمي متوازن ومبتكر</span>
-        </div>
-
+      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
         <h2
           id="smart-study-heading"
-          className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4"
+          className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-snug mb-2"
         >
           مذاكرة أذكى، مش أطول بس ازاي ؟
         </h2>
 
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+        <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
           هنثبت المعلومة بالورش، وهنركز على الوحدات المهمة بالشرح، مع مراجعات
           شهرية تلم منها المنهج
         </p>
       </div>
 
       {/* 3 Interactive Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 items-stretch">
         {studyFeatures.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <div
               key={index}
-              className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 hover:-translate-y-1 overflow-hidden text-right"
+              className="group relative flex flex-col justify-between p-4 sm:p-5 rounded-xl bg-white border border-slate-200/80 shadow-[0_4px_12px_-2px_rgba(38,89,170,0.04)] hover:shadow-md hover:border-slate-300 transition-all duration-200 hover:-translate-y-0.5 overflow-hidden text-right"
             >
               <div>
-                {/* Top Row: Right Icon (48x48 rounded) & Left Badge (Duration) */}
-                <div className="flex items-center justify-between gap-3 mb-6">
-                  {/* Right side: 48x48 rounded container with 20x20 icon */}
+                {/* Top Row: Right Icon & Left Badge */}
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  {/* Right side: Icon container */}
                   <div
-                    className={`size-12 rounded-xl flex items-center justify-center shrink-0 ${item.iconBg} transition-transform duration-300 group-hover:scale-105`}
+                    className={`size-9 rounded-lg flex items-center justify-center shrink-0 ${item.iconBg} transition-transform duration-200 group-hover:scale-105`}
                   >
-                    <IconComponent className="size-5" />
+                    <IconComponent className="size-4" />
                   </div>
 
                   {/* Left side: Clock badge duration pill */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 text-slate-700 text-xs font-medium shadow-2xs">
-                    <Clock className="size-3.5 text-slate-500" />
+                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-200/80 text-slate-600 text-[11px] font-medium">
+                    <Clock className="size-3 text-slate-500" />
                     <span>الكورس ≤ ٥ ساعات</span>
                   </div>
                 </div>
 
                 {/* Category / Goal Badge */}
-                <div className="mb-3.5">
+                <div className="mb-2.5">
                   <span
-                    className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-md border ${item.badgeBorder}`}
+                    className={`inline-block text-[11px] font-semibold px-2 py-0.5 rounded-md border ${item.badgeBorder}`}
                   >
                     {item.badge}
                   </span>
                 </div>
 
                 {/* Card Heading */}
-                <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 mb-3 leading-snug">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-150 mb-1.5 leading-snug">
                   {item.heading}
                 </h3>
 
                 {/* Card Subtitle */}
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {item.subtitle}
                 </p>
               </div>

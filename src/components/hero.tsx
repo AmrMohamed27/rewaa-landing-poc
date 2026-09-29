@@ -1,118 +1,96 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { BookOpen, FileCheck2, Sparkles, ArrowLeft, Users2 } from "lucide-react"
+import * as React from "react";
+import Image from "next/image";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { ArrowLeft, PlayCircle } from "lucide-react";
 
-const AUTH_URL = "https://rewaaedu.com/ar/auth/login"
+const AUTH_URL = "https://rewaaedu.com/ar/auth/login";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Background ambient gradient glow */}
-      <div 
-        className="pointer-events-none absolute -top-24 right-1/2 translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-br from-primary/10 via-primary-light/10 to-transparent blur-3xl -z-10 rounded-full"
-        aria-hidden="true" 
-      />
+    <section className="relative w-full overflow-hidden min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] flex items-center bg-background">
+      {/* Full-width Background Cover Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/rewaa_hero.webp"
+          alt="منصة رِواء التعليمية - شريكك في التفوق والإدارة الذكية"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center lg:object-[center_30%]"
+        />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-        {/* Right Column (RTL text & action side) */}
-        <div className="lg:col-span-5 flex flex-col items-start text-right">
-          {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6 shadow-xs">
-            <Sparkles className="size-3.5 text-primary" />
-            <span>منصتك التعليمية الأولى للتفوق والدرجات النهائية</span>
-          </div>
+        {/* Subtle light/white/offwhite gradient fade for crisp readability without darkening the image */}
+        <div className="absolute inset-0 bg-gradient-to-l from-white/95 via-white/80 to-transparent sm:w-3/4 lg:w-3/5" />
+      </div>
 
-          {/* Headline */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.25] mb-5">
-            تعلّم مع نخبة المعلمين،{" "}
-            <span className="text-primary relative inline-block">
-              دروسك واختباراتك
-              <span className="absolute bottom-1 right-0 left-0 h-2 bg-secondary/30 -z-10 rounded-xs" />
-            </span>{" "}
-            في مكان واحد
+      {/* Hero Content Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+        <div className="max-w-2xl text-right flex flex-col items-start">
+          {/* Main Headline */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-primary tracking-tight leading-[1.2] sm:leading-[1.18] mb-5">
+            انت مش لوحدك..{" "}
+            <span className="relative inline-block text-secondary-foreground font-black">
+              احنا جنبك
+            </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-lg font-normal">
-            اشترك في أقوى الكورسات والحصص الفردية، اختبر مستواك مع بنوك الأسئلة التفاعلية، وتتبع تقدمك الدراسي بكل سهولة مع أفضل تجربة تعليمية في مصر.
-          </p>
+          {/* Subtitle & Value Props */}
+          <div className="text-base sm:text-lg text-slate-800 leading-relaxed mb-8 max-w-xl">
+            <p className="font-bold text-primary mb-3">
+              رِواء بتركز معاك على احتياجات كل طالب بيدور عليها:
+            </p>
+            <ul className="space-y-2.5 text-slate-700 text-sm sm:text-base font-medium">
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary shrink-0" />
+                <span>ورش وتطبيقات تثبت المعلومة</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary shrink-0" />
+                <span>الوحدات الصعبة والمهمة في كل مادة</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-secondary shrink-0" />
+                <span>مراجعات شهرية تلم المنهج أول بأول</span>
+              </li>
+            </ul>
+          </div>
 
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
             <a
               href={AUTH_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants({
-                variant: "default",
+                variant: "secondary",
                 size: "lg",
-                className: "shadow-md hover:shadow-lg transition-all duration-200 gap-2 font-semibold text-base px-6",
+                className:
+                  "shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 gap-2 font-bold text-base px-8 py-6 justify-center",
               })}
             >
               <span>سجّل مجاناً وابدأ التعلّم</span>
-              <ArrowLeft className="size-4" />
+              <ArrowLeft className="size-5" />
             </a>
 
             <Button
-              variant="inverted"
+              variant="outline"
               size="lg"
-              className="text-slate-700 hover:text-primary font-medium text-base border border-slate-200 hover:bg-slate-50 transition-colors"
+              className="bg-white/90 hover:bg-white text-primary hover:text-primary border-primary/20 backdrop-blur-sm font-bold text-base px-7 py-6 transition-all justify-center shadow-sm"
               onClick={() => {
-                const element = document.getElementById("teachers") || document.getElementById("features")
-                element?.scrollIntoView({ behavior: "smooth" })
+                const element =
+                  document.getElementById("teachers") ||
+                  document.getElementById("workshops");
+                element?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              استكشف المدرسين والكورسات
+              <PlayCircle className="size-5 ml-2 text-primary" />
+              <span>استكشف المدرسين والكورسات</span>
             </Button>
-          </div>
-
-          {/* Micro trust indicators aligned with students */}
-          <div className="mt-10 pt-6 border-t border-slate-100 grid grid-cols-3 gap-4 w-full max-w-lg text-slate-600">
-            <div className="flex items-center gap-2">
-              <Users2 className="size-4 text-primary shrink-0" />
-              <span className="text-xs font-medium text-slate-700">نخبة من كبار المعلمين</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <BookOpen className="size-4 text-greenish shrink-0" />
-              <span className="text-xs font-medium text-slate-700">شرح وافٍ وبنوك امتحانات</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FileCheck2 className="size-4 text-secondary-foreground shrink-0" />
-              <span className="text-xs font-medium text-slate-700">تفعيل فوري للاشتراكات</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Left Column (Figma Image filling the available space with only the bottom-right badge) */}
-        <div className="lg:col-span-7 w-full flex justify-center items-center">
-          <div className="relative w-full aspect-[16/9] sm:aspect-[16/9] md:aspect-[16/9.2] rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xl bg-slate-900 group">
-            <Image
-              src="/images/rewaa_hero.jpg"
-              alt="منصة رِواء التعليمية - شريكك في التفوق والإدارة الذكية"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 55vw"
-              className="object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-out"
-            />
-            {/* Subtle bottom vignette to ensure the badge pops cleanly */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-
-            {/* Figma-matched Bottom Right Badge */}
-            <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-10">
-              <Badge 
-                variant="primary" 
-                className="bg-primary/95 backdrop-blur-md text-white border-white/20 py-1.5 px-3.5 sm:py-2 sm:px-4 text-xs sm:text-sm font-semibold shadow-lg tracking-wide"
-              >
-                منصة رِواء التعليمية
-              </Badge>
-            </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

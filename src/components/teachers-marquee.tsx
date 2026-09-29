@@ -1,13 +1,13 @@
-import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 interface Teacher {
-  id: string
-  name: string
-  subject: string
-  avatar: string
-  badgeVariant: "primary" | "secondary" | "greenish"
-  experience?: string
+  id: string;
+  name: string;
+  subject: string;
+  avatar: string;
+  badgeVariant: "primary" | "secondary" | "greenish";
+  experience?: string;
 }
 
 const teachers: Teacher[] = [
@@ -59,62 +59,56 @@ const teachers: Teacher[] = [
     badgeVariant: "greenish",
     experience: "أفضل مراجعات ليلة الامتحان",
   },
-]
+];
 
 export function TeachersMarquee() {
   // Repeating list twice for infinite loop
-  const loopTeachers = [...teachers, ...teachers]
+  const loopTeachers = [...teachers, ...teachers];
 
   return (
     <section
       id="teachers"
-      className="bg-offwhite py-20 md:py-28 px-4 sm:px-6 border-y border-slate-200/70 overflow-hidden relative"
+      className="bg-offwhite/80 py-8 md:py-10 px-4 sm:px-6 border-b border-slate-200/70 overflow-hidden relative"
     >
-      {/* Subtle Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
-          <Badge variant="primary" className="mb-3.5 px-3.5 py-1 text-xs font-semibold">
-            نخبة المعلمين في بنها
-          </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
-            مدرسين بنها اللي بتثق فيهم
+        <div className="text-center max-w-xl mx-auto mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 tracking-tight mb-2">
+            مدرسين بنها الي بتثق فيهم
           </h2>
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
             هيحلوا ويراجعوا معاك خطوة بخطوة حتى ليلة الامتحان
           </p>
         </div>
 
         {/* Marquee Container with Gradient Edge Masks */}
-        <div className="relative w-full overflow-hidden pause-on-hover py-4">
+        <div className="relative w-full overflow-hidden pause-on-hover py-2">
           {/* Edge Blur / Fades (RTL aware) */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 md:w-36 bg-gradient-to-l from-offwhite to-transparent z-20" />
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 md:w-36 bg-gradient-to-r from-offwhite to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-l from-offwhite to-transparent z-20" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-offwhite to-transparent z-20" />
 
           {/* Marquee Track */}
-          <div className="flex w-max gap-6 animate-marquee">
+          <div className="flex w-max gap-4 animate-marquee items-stretch">
             {loopTeachers.map((teacher, index) => (
               <div
                 key={`${teacher.id}-${index}`}
-                className="w-[250px] sm:w-[270px] shrink-0 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-[0_10px_25px_-5px_rgba(38,89,170,0.05),0_2px_6px_-2px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_35px_-10px_rgba(38,89,170,0.14),0_6px_12px_-3px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer"
+                className="w-[160px] sm:w-[175px] shrink-0 bg-white rounded-xl p-3.5 sm:p-4 border border-slate-200/80 shadow-[0_4px_12px_-2px_rgba(38,89,170,0.04)] hover:shadow-md hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer"
               >
-                {/* Avatar with dynamic ring on hover */}
-                <div className="relative mb-4">
-                  <div className="relative w-20 h-20 rounded-full overflow-hidden ring-4 ring-slate-100 group-hover:ring-primary/30 transition-all duration-300 shadow-sm">
+                {/* Avatar */}
+                <div className="relative mb-2.5">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden ring-3 ring-slate-100 group-hover:ring-primary/30 transition-all duration-300 shadow-xs">
                     <Image
                       src={teacher.avatar}
                       alt={teacher.name}
                       fill
-                      sizes="80px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="56px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  {/* Small verified / certified badge icon */}
-                  <div className="absolute -bottom-1 -left-1 bg-primary text-white p-1 rounded-full shadow-xs border-2 border-white">
+                  {/* Micro verified checkmark */}
+                  <div className="absolute -bottom-0.5 -left-0.5 bg-primary text-white p-0.5 rounded-full shadow-xs border-2 border-white">
                     <svg
-                      className="w-3.5 h-3.5"
+                      className="w-2.5 h-2.5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -130,21 +124,21 @@ export function TeachersMarquee() {
                 </div>
 
                 {/* Teacher Name */}
-                <h3 className="font-bold text-base md:text-lg text-slate-900 group-hover:text-primary transition-colors duration-200 mb-2">
+                <h3 className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-primary transition-colors duration-150 mb-1.5 truncate max-w-full">
                   {teacher.name}
                 </h3>
 
                 {/* Subject Badge */}
                 <Badge
                   variant={teacher.badgeVariant}
-                  className="mb-3 text-xs font-semibold px-3 py-0.5"
+                  className="mb-2 text-[11px] font-medium px-2 py-0.5 leading-tight"
                 >
                   {teacher.subject}
                 </Badge>
 
-                {/* Micro info / trust proof */}
+                {/* Micro info */}
                 {teacher.experience && (
-                  <p className="text-xs text-slate-500 font-normal leading-relaxed mt-auto pt-2 border-t border-slate-100 w-full">
+                  <p className="text-[11px] text-slate-500 font-normal leading-tight mt-auto pt-2 border-t border-slate-100 w-full truncate">
                     {teacher.experience}
                   </p>
                 )}
@@ -154,5 +148,5 @@ export function TeachersMarquee() {
         </div>
       </div>
     </section>
-  )
+  );
 }

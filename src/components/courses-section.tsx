@@ -157,7 +157,7 @@ export function CoursesSection() {
   return (
     <section
       id="workshops"
-      className="relative w-full py-16 sm:py-24 bg-[#F0F3FF] border-y border-slate-200/60 overflow-hidden"
+      className="relative w-full py-10 sm:py-14 bg-[#F0F3FF] border-y border-slate-200/60 overflow-hidden"
       aria-labelledby="courses-heading"
     >
       {/* Background Subtle Ambient Glow */}
@@ -168,149 +168,148 @@ export function CoursesSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           {/* Top Zap Badge */}
           <Badge
             variant="secondary"
-            className="gap-2 px-4 py-1.5 text-xs font-bold mb-4 shadow-xs"
+            className="gap-1.5 px-3 py-1 text-xs font-bold mb-2.5 shadow-xs"
           >
-            <Zap className="size-3.5 fill-current" />
+            <Zap className="size-3 fill-current" />
             <span>محتوى تعليمي مكثف</span>
           </Badge>
 
           <h2
             id="courses-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4"
+            className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mb-2"
           >
             أحدث الورش والمراجعات
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
             اختار اللي محتاجه دلوقتي: ورشة، شرح لموضوع صعب، أو مراجعة شهرية.
           </p>
         </div>
 
         {/* 3-Column Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-        {courses.map((course) => {
-          const SubjectIcon = course.icon;
-          return (
-            <article
-              key={course.id}
-              className="group relative flex flex-col justify-between rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden text-right"
-            >
-              {/* Top Half: Cover Image & Floating Visual Badges */}
-              <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
-                  {/* Course Cover Image with Zoom Effect */}
-                  <Image
-                    src={course.coverImage}
-                    alt={course.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-95"
-                  />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+          {courses.map((course) => {
+            const SubjectIcon = course.icon;
+            return (
+              <article
+                key={course.id}
+                className="group relative flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 overflow-hidden text-right"
+              >
+                {/* Top Half: Cover Image & Floating Visual Badges */}
+                <div>
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                    {/* Course Cover Image with Zoom Effect */}
+                    <Image
+                      src={course.coverImage}
+                      alt={course.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 opacity-90 group-hover:opacity-95"
+                    />
 
-                  {/* Top-to-bottom dark gradient scrim for contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/60 pointer-events-none" />
+                    {/* Top-to-bottom dark gradient scrim for contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/60 pointer-events-none" />
 
-                  {/* Top Overlay Row: Badges on Right, Subject Icon on Left */}
-                  <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2 z-10">
-                    {/* Right Side: Subject Badge & Feature Type Badge */}
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md text-slate-900 text-xs font-bold shadow-xs">
-                        {course.subject}
-                      </span>
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-secondary/90 backdrop-blur-md text-[#4A3900] text-xs font-extrabold shadow-xs">
-                        {course.featureType}
-                      </span>
+                    {/* Top Overlay Row: Badges on Right, Subject Icon on Left */}
+                    <div className="absolute top-2.5 inset-x-2.5 flex items-center justify-between gap-2 z-10">
+                      {/* Right Side: Subject Badge & Feature Type Badge */}
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-md text-slate-900 text-[11px] font-bold shadow-xs">
+                          {course.subject}
+                        </span>
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-secondary/90 backdrop-blur-md text-[#4A3900] text-[11px] font-extrabold shadow-xs">
+                          {course.featureType}
+                        </span>
+                      </div>
+
+                      {/* Left Side: Subject Category Icon (Top Left) */}
+                      <div className="size-7 rounded-lg bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
+                        <SubjectIcon className="size-3.5" />
+                      </div>
                     </div>
 
-                    {/* Left Side: Subject Category Icon (Top Left) */}
-                    <div className="size-8 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-110 transition-transform duration-300">
-                      <SubjectIcon className="size-4.5" />
-                    </div>
-                  </div>
-
-                  {/* Bottom of Image: Duration Pill */}
-                  <div className="absolute bottom-3.5 right-3.5 z-10">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium shadow-xs">
-                      <Clock className="size-3.5 text-secondary" />
-                      <span>{course.duration}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content Body: Title & Subtitle */}
-                <div className="p-5 sm:p-6 pb-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 line-clamp-2 leading-snug mb-2.5">
-                    {course.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 line-clamp-2 leading-relaxed font-normal">
-                    {course.subtitle}
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom Card Footer: Teacher Info (Right) & Price + Action (Left) */}
-              <div className="p-5 sm:p-6 pt-0 mt-auto">
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                  {/* Right side: Teacher Avatar & Name */}
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="relative size-10 rounded-full overflow-hidden border-2 border-primary/20 bg-slate-100 shrink-0">
-                      <Image
-                        src={course.teacher.avatar}
-                        alt={course.teacher.name}
-                        fill
-                        sizes="40px"
-                        className="object-cover object-top scale-125"
-                      />
-                    </div>
-                    <div className="min-w-0 text-right">
-                      <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">
-                        {course.teacher.name}
-                      </p>
-                      <p className="text-[11px] text-slate-500 truncate">
-                        {course.teacher.subject}
-                      </p>
+                    {/* Bottom of Image: Duration Pill */}
+                    <div className="absolute bottom-2.5 right-2.5 z-10">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-medium shadow-xs">
+                        <Clock className="size-3 text-secondary" />
+                        <span>{course.duration}</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Left side: Course Price */}
-                  <div className="text-left shrink-0">
-                    <div className="flex items-baseline gap-1 justify-end">
-                      <span className="text-xl sm:text-2xl font-black text-primary">
-                        {course.price}
-                      </span>
-                      <span className="text-xs font-bold text-slate-600">
-                        ج.م
-                      </span>
-                    </div>
-                    {course.originalPrice && (
-                      <span className="text-[11px] text-slate-400 line-through block -mt-1 text-left">
-                        {course.originalPrice} ج.م
-                      </span>
-                    )}
+                  {/* Content Body: Title & Subtitle */}
+                  <div className="p-4 pb-3">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 line-clamp-2 leading-snug mb-1.5">
+                      {course.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed font-normal">
+                      {course.subtitle}
+                    </p>
                   </div>
                 </div>
 
-                {/* Seamless Interactive Button */}
-                <a
-                  href={AUTH_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-primary hover:text-white text-slate-700 text-xs sm:text-sm font-bold border border-slate-200/80 hover:border-transparent transition-all duration-200 active:scale-[0.98] group/btn"
-                >
-                  <span>سجل في الكورس</span>
-                  <ArrowLeft className="size-3.5 transition-transform duration-200 group-hover/btn:-translate-x-1" />
-                </a>
-              </div>
-            </article>
-          );
-        })}
+                {/* Bottom Card Footer: Teacher Info (Right) & Price + Action (Left) */}
+                <div className="p-4 pt-0 mt-auto">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                    {/* Right side: Teacher Avatar & Name */}
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="relative size-8 rounded-full overflow-hidden border border-primary/20 bg-slate-100 shrink-0">
+                        <Image
+                          src={course.teacher.avatar}
+                          alt={course.teacher.name}
+                          fill
+                          sizes="32px"
+                          className="object-cover object-top scale-125"
+                        />
+                      </div>
+                      <div className="min-w-0 text-right">
+                        <p className="text-xs font-bold text-slate-900 truncate">
+                          {course.teacher.name}
+                        </p>
+                        <p className="text-[10px] text-slate-500 truncate">
+                          {course.teacher.subject}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Left side: Course Price */}
+                    <div className="text-left shrink-0">
+                      <div className="flex items-baseline gap-1 justify-end">
+                        <span className="text-lg sm:text-xl font-black text-primary">
+                          {course.price}
+                        </span>
+                        <span className="text-[11px] font-bold text-slate-600">
+                          ج.م
+                        </span>
+                      </div>
+                      {course.originalPrice && (
+                        <span className="text-[10px] text-slate-400 line-through block -mt-0.5 text-left">
+                          {course.originalPrice} ج.م
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Seamless Interactive Button */}
+                  <a
+                    href={AUTH_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 w-full inline-flex items-center justify-center gap-1.5 py-2 px-3.5 rounded-lg bg-slate-50 hover:bg-primary hover:text-white text-slate-700 text-xs font-bold border border-slate-200/80 hover:border-transparent transition-all duration-200 active:scale-[0.98] group/btn"
+                  >
+                    <span>سجل في الكورس</span>
+                    <ArrowLeft className="size-3.5 transition-transform duration-200 group-hover/btn:-translate-x-1" />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-

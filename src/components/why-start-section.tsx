@@ -79,7 +79,7 @@ export function WhyStartSection() {
   return (
     <section
       id="why-rewaa"
-      className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+      className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
       aria-labelledby="why-start-heading"
     >
       {/* Subtle Background Glows */}
@@ -89,32 +89,27 @@ export function WhyStartSection() {
       />
 
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-4 shadow-xs">
-          <Sparkles className="size-3.5 text-primary" />
-          <span>طريقك الأسهل للتفوق والدرجات النهائية</span>
-        </div>
-
+      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
         <h2
           id="why-start-heading"
-          className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4"
+          className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mb-2"
         >
           ليه لازم تبدأ معانا؟
         </h2>
 
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
           علشان طريقتنا مختلفة هنوصلك للكلية التي تحلم بها
         </p>
       </div>
 
       {/* 4 Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 items-stretch">
         {whyCards.map((card) => {
           const Icon = card.icon;
           return (
             <div
               key={card.id}
-              className={`group relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl ${card.borderHoverColor} transition-all duration-300 hover:-translate-y-1.5 overflow-hidden text-right`}
+              className={`group relative flex flex-col justify-between p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg ${card.borderHoverColor} transition-all duration-300 hover:-translate-y-1 overflow-hidden text-right`}
             >
               {/* Card Ambient Hover Glow Gradient */}
               <div
@@ -124,37 +119,37 @@ export function WhyStartSection() {
 
               {/* Top and Content */}
               <div className="relative z-10">
-                {/* Header Row: 48x48 icon container & Badge */}
-                <div className="flex items-center justify-between gap-3 mb-5">
+                {/* Header Row: 40x40 icon container & Badge */}
+                <div className="flex items-center justify-between gap-2.5 mb-3.5">
                   <div
-                    className={`size-12 rounded-2xl flex items-center justify-center shrink-0 ${card.iconBg} shadow-xs transition-transform duration-300 group-hover:scale-110`}
+                    className={`size-10 rounded-xl flex items-center justify-center shrink-0 ${card.iconBg} shadow-xs transition-transform duration-300 group-hover:scale-105`}
                   >
-                    <Icon className="size-5" />
+                    <Icon className="size-4.5" />
                   </div>
 
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-slate-100/80 border border-slate-200/80 text-slate-600 text-xs font-medium">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-slate-100/80 border border-slate-200/80 text-slate-600 text-[11px] font-medium">
                     {card.badge}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 mb-3 leading-snug">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-200 mb-2 leading-snug">
                   {card.title}
                 </h3>
 
                 {/* Subtitle */}
-                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {card.subtitle}
                 </p>
               </div>
 
               {/* Bottom Interactive CTA that reveals cleanly on hover / always accessible */}
-              <div className="relative z-10 pt-6 mt-4 border-t border-slate-100/80">
+              <div className="relative z-10 pt-4 mt-3 border-t border-slate-100/80">
                 <a
                   href={AUTH_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-primary group-hover:text-white text-slate-700 text-xs sm:text-sm font-bold border border-slate-200/80 group-hover:border-transparent transition-all duration-300 shadow-2xs group-hover:shadow-md group-hover:shadow-primary/20 active:scale-[0.98]"
+                  className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3.5 rounded-lg bg-slate-50 group-hover:bg-primary group-hover:text-white text-slate-700 text-xs font-bold border border-slate-200/80 group-hover:border-transparent transition-all duration-300 shadow-2xs group-hover:shadow-md group-hover:shadow-primary/20 active:scale-[0.98]"
                 >
                   <span>سجل مجاناً الآن</span>
                   <ArrowLeft className="size-3.5 transition-transform duration-200 group-hover:-translate-x-1" />
