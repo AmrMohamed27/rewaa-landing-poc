@@ -1,26 +1,165 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-arabic), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-arabic), system-ui, -apple-system, sans-serif;
+
+  /* Brand Palette Variables */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-light: var(--primary-light);
+  --color-primary-light-foreground: var(--primary-light-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-greenish: var(--greenish);
+  --color-greenish-foreground: var(--greenish-foreground);
+  --color-greenish-light: var(--greenish-light);
+  --color-greenish-light-foreground: var(--greenish-light-foreground);
+
+  --color-offwhite: var(--offwhite);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Core Base Colors */
+  --background: #ffffff;
+  --foreground: #0b1120;
+  --offwhite: #F0F3FF;
+
+  /* Rewaa Primary & Light (#2659aa & #73a4ec) */
+  --primary: #2659aa;
+  --primary-foreground: #ffffff;
+  --primary-light: #73a4ec;
+  --primary-light-foreground: #10346d;
+
+  /* Rewaa Secondary (#FFC703 & #6E5400) */
+  --secondary: #FFC703;
+  --secondary-foreground: #6E5400;
+
+  /* Rewaa Greenish Brand & Badge Accent (#004B59) */
+  --greenish: #004B59;
+  --greenish-foreground: #ffffff;
+  --greenish-light: #E0F2F5;
+  --greenish-light-foreground: #004B59;
+
+  /* Cards, Surfaces & Elevation */
+  --card: #ffffff;
+  --card-foreground: #0b1120;
+  --popover: #ffffff;
+  --popover-foreground: #0b1120;
+
+  /* UI Tokens */
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #F0F3FF;
+  --accent-foreground: #2659aa;
+  --destructive: #ef4444;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2659aa;
+
+  /* 12px default radius */
+  --radius: 0.75rem;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b1120;
+  --sidebar-primary: #2659aa;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #F0F3FF;
+  --sidebar-accent-foreground: #2659aa;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #2659aa;
+}
+
+.dark {
+  --background: #090d16;
+  --foreground: #f8fafc;
+  --offwhite: #0f172a;
+
+  --primary: #3b76d6;
+  --primary-foreground: #ffffff;
+  --primary-light: #1e3a6a;
+  --primary-light-foreground: #93c5fd;
+
+  --secondary: #FFC703;
+  --secondary-foreground: #423200;
+
+  --greenish: #007085;
+  --greenish-foreground: #ffffff;
+  --greenish-light: #062f38;
+  --greenish-light-foreground: #38d0eb;
+
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #73a4ec;
+  --destructive: #7f1d1d;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #3b76d6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  html {
+    font-family: var(--font-arabic), system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused;
 }
