@@ -1,7 +1,12 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { MethodologySection } from "@/components/methodology-section";
 import { TeachersMarquee } from "@/components/teachers-marquee";
+import { SmartStudySection } from "@/components/smart-study-section";
+import { MethodologySection } from "@/components/methodology-section";
+import { WhyStartSection } from "@/components/why-start-section";
+import { CoursesSection } from "@/components/courses-section";
+import { SubjectsAndCtaSection } from "@/components/subjects-cta-section";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -10,10 +15,21 @@ export default function Home() {
       <Navbar />
       {/* Hero Section */}
       <Hero />
-      {/* Teachers Marquee Section (Off-white section from Figma) */}
+      {/* Teachers Marquee Section */}
       <TeachersMarquee />
       {/* Methodology & Teachers Feature Section */}
       <MethodologySection />
+      {/* Smart Study 3-Card Methodology Section */}
+      <SmartStudySection />
+      {/* Latest Workshops & Reviews Section */}
+      <CoursesSection />
+      {/* Why Start With Us 4-Card Feature Section */}
+      <WhyStartSection />
+      {/* Subjects Badges & Final Conversion CTA Section */}
+      <SubjectsAndCtaSection />
+      {/* Comprehensive 4-Column Footer Section */}
+      <Footer />
     </main>
   );
 }
+

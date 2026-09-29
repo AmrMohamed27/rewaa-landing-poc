@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Menu, X, ArrowLeft } from "lucide-react"
-import { buttonVariants } from "@/components/ui/button"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X, ArrowLeft } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "الرئيسية", href: "/" },
@@ -13,22 +13,22 @@ const navLinks = [
   { label: "الورش والمراجعات", href: "/#workshops" },
   { label: "المواد الدراسية", href: "/#subjects" },
   { label: "عن المنصة", href: "/#about" },
-]
+];
 
-const AUTH_URL = "https://rewaaedu.com/ar/auth/login"
+const AUTH_URL = "https://rewaaedu.com/ar/auth/login";
 
 export function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
-  const [isScrolled, setIsScrolled] = React.useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -58,7 +58,10 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="التنقل الرئيسي">
+            <nav
+              className="hidden md:flex items-center gap-1 lg:gap-2"
+              aria-label="التنقل الرئيسي"
+            >
               {navLinks.map((item) => (
                 <Link
                   key={item.href}
@@ -93,7 +96,8 @@ export function Navbar() {
               className={buttonVariants({
                 variant: "secondary",
                 size: "sm",
-                className: "shadow-sm hover:shadow-md transition-all duration-150",
+                className:
+                  "shadow-sm hover:shadow-md transition-all duration-150",
               })}
             >
               إنشاء حساب مجاني
@@ -107,10 +111,16 @@ export function Navbar() {
               size="icon-sm"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة الرئيسية"}
+              aria-label={
+                mobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة الرئيسية"
+              }
               className="text-slate-700 hover:bg-slate-100"
             >
-              {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              {mobileMenuOpen ? (
+                <X className="size-5" />
+              ) : (
+                <Menu className="size-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -164,5 +174,5 @@ export function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }
