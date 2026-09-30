@@ -11,8 +11,7 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
 
 export const metadata: Metadata = {
   title: "رِواء للتعليم | منصة إدارة المراكز التعليمية والدورات التدريبية",
-  description:
-    "منصة سحابية متكاملة متعددة المستأجرين لإدارة المراكز التعليمية، الجدولة الآلية، حجز الدورات الآمن والتحقق من هوية الطلاب.",
+  description: "رواء انت مش لوحدك احنا جنبك",
 };
 
 export default function RootLayout({
